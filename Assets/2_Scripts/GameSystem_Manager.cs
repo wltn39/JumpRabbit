@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameSystem_Manager : MonoBehaviour
 {
-    [SerialzeField] private Player_Script PlayerClass = null; 
+    [SerializeField] private Player_Script PlayerClass = null;
 
     private void Awake()
     {

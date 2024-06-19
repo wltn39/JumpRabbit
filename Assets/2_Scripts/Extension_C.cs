@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Extension_C 
+public static class Extension_C
 {
     private const string format0N0 = "{0:N0}";
     private const string format0N1 = "{0:N1}";
@@ -25,7 +25,7 @@ public class Extension_C
                 return string.Format(format0N3, _value);
             }
             else{
-                return _value.ToStirng();
+                return _value.ToString();
             }
         }
         else 
