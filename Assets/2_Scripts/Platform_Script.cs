@@ -6,15 +6,10 @@ public class Platform_Script : MonoBehaviour
 {
 
     [SerializeField] private BoxCollider2D col = null;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private SpriteRenderer srdr = null;
+
+    public void Activate_Func(Vector2 _pos)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        this.transform.position = _pos;
     }
 }
