@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 46462718077980888, guid: db565bf7829a335479dde14905f7dfdf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 46462718077980888, guid: db565bf7829a335479dde14905f7dfdf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -61,22 +61,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db565bf7829a335479dde14905f7dfdf, type: 3}
---- !u!1 &7596919479394921008 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 46462718077980890, guid: db565bf7829a335479dde14905f7dfdf, type: 3}
-  m_PrefabInstance: {fileID: 7622553048791005930}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4804029109497777337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7596919479394921008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83513431b1bc4b84e839b1da71dfb44b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  col: {fileID: 0}
-  srdr: {fileID: 0}

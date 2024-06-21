@@ -12,6 +12,8 @@ public class PlatformSystem_Manager : MonoBehaviour
     private Dictionary<int, Platform_Script[]> platformClassArrDic;
     private int platformNum;
     [SerializeField] private Data[] dataArr = null;
+    [SerializeField] private float gapIntervalMin = .5f;
+    [SerializeField] private float gapIntervalMax = 1.5f;
     public void Init_Func()
     {
         this.platformClassArrDic = new Dictionary<int, Platform_Script[]>();
@@ -42,9 +44,15 @@ public class PlatformSystem_Manager : MonoBehaviour
             Platform_Script _randPlatformClass = _platformClassArr[_randID];
 
             Platform_Script _platformClass = GameObject.Instantiate<Platform_Script>(_randPlatformClass);
+
+            if (i > 0)
+                _pos += Vector2.right * _platformClass.GetHalfSizeX;
+
             _platformClass.Activate_Func(_pos);
 
-            _pos += Vector2.right * 6f;
+            float _gap = Random.Range(this.gapIntervalMin, this.gapIntervalMax);
+
+            _pos += new Vector2(_gap + _platformClass.GetHalfSizeX, 0f);
 
             this.platformNum++;
         }

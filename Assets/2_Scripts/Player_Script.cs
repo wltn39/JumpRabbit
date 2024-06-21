@@ -40,6 +40,7 @@ public class Player_Script : MonoBehaviour
     {
         this.rigid.velocity = Vector2.zero;
         this.anim.SetInteger("StateID", 0);
+        CameraSystem_Manager.Instance.OnFollow_Func(this.transform.position);
     }
 }
 
