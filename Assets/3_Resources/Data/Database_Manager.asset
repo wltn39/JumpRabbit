@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d9c1f960359694789f0050b9b148f8, type: 3}
   m_Name: Database_Manager
   m_EditorClassIdentifier: 
-  jumpPower: 10
-  spawnPosTrf: {fileID: 0}
+  jumpPower: 7
   largePlatformClassArr:
   - {fileID: 1987934851392401, guid: e4d6f05d4884d9d4480ed72d288dfbf1, type: 3}
   - {fileID: 1987934851392401, guid: 3f2dde05c59ca7943a841e1684b4121a, type: 3}
