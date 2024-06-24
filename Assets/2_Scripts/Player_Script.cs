@@ -5,8 +5,7 @@ using UnityEngine;
 public class Player_Script : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rigid = null;
-    [SerializeField] private float jumpPower = 1f;
-    [SerializeField] private float currentJumpPower = 1f;
+    private float currentJumpPower = 1f;
     [SerializeField] private Animator anim = null;
 
     public void Init_Func()
@@ -23,7 +22,7 @@ public class Player_Script : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.Space) == true)
         {
-            this.currentJumpPower += this.jumpPower;
+            this.currentJumpPower += Database_Manager.Instance.jumpPower;
         }
         else if (Input.GetKeyUp(KeyCode.Space) == true)
         {

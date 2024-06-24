@@ -5,22 +5,17 @@ using UnityEngine;
 
 public class PlatformSystem_Manager : MonoBehaviour
 {
-    [SerializeField] private Transform spawnPosTrf = null;
-    [SerializeField] private Platform_Script[] largePlatformClassArr = null;
-    [SerializeField] private Platform_Script[] middlePlatformClassArr = null;
-    [SerializeField] private Platform_Script[] smallPlatformClassArr = null;
     private Dictionary<int, Platform_Script[]> platformClassArrDic;
     private int platformNum;
-    [SerializeField] private Data[] dataArr = null;
-    [SerializeField] private float gapIntervalMin = .5f;
-    [SerializeField] private float gapIntervalMax = 1.5f;
+    [SerializeField] private Transform spawnPosTrf = null;
+
     public void Init_Func()
     {
         this.platformClassArrDic = new Dictionary<int, Platform_Script[]>();
 
-        this.platformClassArrDic.Add(0, this.smallPlatformClassArr);
-        this.platformClassArrDic.Add(1, this.middlePlatformClassArr);
-        this.platformClassArrDic.Add(2, this.largePlatformClassArr);
+        this.platformClassArrDic.Add(0, Database_Manager.Instance.smallPlatformClassArr);
+        this.platformClassArrDic.Add(1, Database_Manager.Instance.middlePlatformClassArr);
+        this.platformClassArrDic.Add(2, Database_Manager.Instance.largePlatformClassArr);
     }
     public void Activate_Func()
     {
@@ -30,7 +25,7 @@ public class PlatformSystem_Manager : MonoBehaviour
         {
             int _platformID = -1;
 
-            foreach (Data _data in this.dataArr)
+            foreach (Data _data in Database_Manager.Instance.dataArr)
             {
                 if (_data.TryGetPlatformID_Func(this.platformNum, out _platformID) == true)
                 {
@@ -50,7 +45,7 @@ public class PlatformSystem_Manager : MonoBehaviour
 
             _platformClass.Activate_Func(_pos);
 
-            float _gap = Random.Range(this.gapIntervalMin, this.gapIntervalMax);
+            float _gap = Random.Range(Database_Manager.Instance.gapIntervalMin, Database_Manager.Instance.gapIntervalMax);
 
             _pos += new Vector2(_gap + _platformClass.GetHalfSizeX, 0f);
 

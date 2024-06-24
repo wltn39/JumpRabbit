@@ -6,8 +6,7 @@ public class CameraSystem_Manager : MonoBehaviour
 {
     public static CameraSystem_Manager Instance;
 
-    [SerializeField] private float followSpeed = 5f;
-    [SerializeField] private float arriveDist = .1f;
+
     public void Init_Func()
     {
         Instance = this;
@@ -20,9 +19,9 @@ public class CameraSystem_Manager : MonoBehaviour
 
     private IEnumerator OnFollow_Cor(Vector2 _targetPos)
     {
-        while (this.arriveDist < Vector3.Distance(this.transform.position, _targetPos))
+        while (Database_Manager.Instance.arriveDist <= Vector3.Distance(this.transform.position, _targetPos))
         {
-            this.transform.position = Vector3.Lerp(this.transform.position, _targetPos, Time.deltaTime * this.followSpeed);
+            this.transform.position = Vector3.Lerp(this.transform.position, _targetPos, Time.deltaTime * Database_Manager.Instance.followSpeed);
 
             yield return null;
         }
