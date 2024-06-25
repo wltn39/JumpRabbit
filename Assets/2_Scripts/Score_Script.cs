@@ -6,10 +6,10 @@ using TMPro;
 public class Score_Script : MonoBehaviour
 {
     [SerializeField] private TextMeshPro tmp = null;
-
-    public void Activate_Func(int _score)
+    public void Activate_Func(string _str, Color _color)
     {
-        this.tmp.text = _score.ToString();
+        this.tmp.text = _str;
+        this.tmp.color = _color;
     }
     public void Deactivate_Func()
     {

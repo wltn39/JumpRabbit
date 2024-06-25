@@ -32,5 +32,10 @@ public static class Extension_C
         {
             return string.Format(format0N0, _value);
         }
-    }      
+    }
+
+    public static string ToString_Percent_Func(this float _value)
+    {
+        return (_value * 100f).ToString_Func() + "%";
+    }
 }

@@ -23,5 +23,6 @@ public class GameSystem_Manager : MonoBehaviour
     private void Start()
     {
         this.platformSystem_Manager.Activate_Func();
+        this.scoreSystem_Manager.Activate_Func();
     }
 }

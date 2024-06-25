@@ -5,8 +5,10 @@ using UnityEngine;
 public class Player_Script : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rigid = null;
-    private float currentJumpPower = 1f;
     [SerializeField] private Animator anim = null;
+    private float currentJumpPower = 1f;
+    private Platform_Script landingPlatformClass;
+
 
     public void Init_Func()
     {
@@ -44,6 +46,16 @@ public class Player_Script : MonoBehaviour
         if (_col.transform.parent.TryGetComponent(out Platform_Script _platformClass) == true)
         {
             _platformClass.OnLanding_Func();
+
+            if (this.landingPlatformClass != _platformClass)
+            {
+                this.landingPlatformClass = _platformClass;
+                ScoreSystem_Manager.Instance.AddBonus_Func(Database_Manager.Instance.bonusValue, this.transform.position);
+            }
+            else
+            {
+                ScoreSystem_Manager.Instance.OnResetBonus_Func();
+            }
         }
     }
 }
