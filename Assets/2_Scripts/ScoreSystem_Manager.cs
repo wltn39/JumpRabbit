@@ -24,6 +24,7 @@ public class ScoreSystem_Manager : MonoBehaviour
     public void Activate_Func()
     {
         this.totalBonus = 1f;
+        StartCoroutine(this.OnScore_Cor());
     }
 
     private IEnumerator OnScore_Cor()
@@ -32,17 +33,21 @@ public class ScoreSystem_Manager : MonoBehaviour
         {
             if (0 < this.scoreDataList.Count)
             {
-                for (int i = this.scoreDataList.Count - 1; i >= 0; i--)
-                {
-                    ScoreData _scoreData = this.scoreDataList[i];
+                ScoreData _scoreData = this.scoreDataList[0];
 
-                    Score_Script _scoreClass = GameObject.Instantiate<Score_Script>(this.baseScoreClass);
-                    _scoreClass.Activate_Func(_scoreData.str, _scoreData.color);
+                Score_Script _scoreClass = GameObject.Instantiate<Score_Script>(this.baseScoreClass);
+                _scoreClass.Activate_Func(_scoreData.str, _scoreData.color);
+                _scoreClass.transform.position = _scoreData.pos;
 
-                    this.scoreDataList.RemoveAt(i);
-                }
+                this.scoreDataList.RemoveAt(0);
+
+                yield return new WaitForSeconds(Database_Manager.Instance.scorePopInterval);
             }
-            yield return null;
+            else
+            {
+                yield return null;
+            }
+
         }
     }
     public void AddScore_Func(int _score, Vector2 _scorePos)
@@ -51,20 +56,23 @@ public class ScoreSystem_Manager : MonoBehaviour
         _scoreData.str = _score.ToString();
         _scoreData.color = Database_Manager.Instance.scoreColor;
         _scoreData.pos = _scorePos;
+        this.scoreDataList.Add(_scoreData);
 
         this.totalScore += _score;
+
         this.scoreTmp.text = this.totalScore.ToString();
     }
 
     public void AddBonus_Func(float _bonus, Vector2 _bonusPos)
     {
-        Score_Script _scoreClass = GameObject.Instantiate<Score_Script>(this.baseScoreClass);
-        _scoreClass.transform.position = _bonusPos;
-
-        string _str = "Bonus " + _bonus.ToString_Percent_Func();
-        _scoreClass.Activate_Func(_str, Database_Manager.Instance.bonusColor);
+        ScoreData _scoreData = new ScoreData();
+        _scoreData.str = "Bonus " + _bonus.ToString_Percent_Func();
+        _scoreData.color = Database_Manager.Instance.bonusColor;
+        _scoreData.pos = _bonusPos;
+        this.scoreDataList.Add(_scoreData);
 
         this.totalBonus += _bonus;
+
         this.bonusTmp.text = this.totalBonus.ToString_Percent_Func();
     }
 

@@ -10,6 +10,7 @@ public class Database_Manager : ScriptableObject
     [Header("연출")]
     public Color scoreColor;
     public Color bonusColor;
+    public float scorePopInterval;
 
 
     [Header("플레이어")]
