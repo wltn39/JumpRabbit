@@ -23,7 +23,6 @@ public class ScoreSystem_Manager : MonoBehaviour
 
     public void Activate_Func()
     {
-        this.totalBonus = 1f;
         StartCoroutine(this.OnScore_Cor());
     }
 
@@ -50,7 +49,7 @@ public class ScoreSystem_Manager : MonoBehaviour
 
         }
     }
-    public void AddScore_Func(int _score, Vector2 _scorePos)
+    public void AddScore_Func(int _score, Vector2 _scorePos, bool _isCalcBonus = true)
     {
         ScoreData _scoreData = new ScoreData();
         _scoreData.str = _score.ToString();
@@ -59,6 +58,12 @@ public class ScoreSystem_Manager : MonoBehaviour
         this.scoreDataList.Add(_scoreData);
 
         this.totalScore += _score;
+
+        if (_isCalcBonus == true)
+        {
+            int _bonusScore = (int)(_score * this.totalBonus);
+            this.AddScore_Func(_bonusScore, _scorePos, false);
+        }
 
         this.scoreTmp.text = this.totalScore.ToString();
     }
@@ -76,10 +81,18 @@ public class ScoreSystem_Manager : MonoBehaviour
         this.bonusTmp.text = this.totalBonus.ToString_Percent_Func();
     }
 
-    public void OnResetBonus_Func()
+    public void OnResetBonus_Func(Vector2 _pos)
     {
-        this.totalBonus = 1f;
+        this.totalBonus = 0f;
         this.bonusTmp.text = this.totalBonus.ToString_Percent_Func();
+
+        ScoreData _scoreData = new ScoreData();
+        _scoreData.str = "Bonus 초기화 ...";
+        _scoreData.color = Database_Manager.Instance.bonusColor;
+        _scoreData.pos = _pos;
+        this.scoreDataList.Add(_scoreData);
+
+
     }
 
     private struct ScoreData

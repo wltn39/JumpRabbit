@@ -60,3 +60,6 @@ MonoBehaviour:
   bonusValue: 0.05
   followSpeed: 5
   arriveDist: 0.1
+  baseItemClass: {fileID: 2360358527925842022, guid: 8a8444f689dc21741a22a2cadbcf5b24, type: 3}
+  itemSpawnPer: 0.2
+  itemBonus: 0.25

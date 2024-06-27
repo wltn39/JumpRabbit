@@ -30,6 +30,10 @@ public class Database_Manager : ScriptableObject
     public float followSpeed = 5f;
     public float arriveDist = .1f;
 
+    [Header("아이템")]
+    public Item_Script baseItemClass;
+    public float itemSpawnPer = .2f;
+    public float itemBonus = .25f;
 
     public void Init_Func()
     {

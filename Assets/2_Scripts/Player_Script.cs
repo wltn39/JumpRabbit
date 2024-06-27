@@ -40,13 +40,14 @@ public class Player_Script : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D _col)
     {
         this.rigid.velocity = Vector2.zero;
+
         this.anim.SetInteger("StateID", 0);
+
         CameraSystem_Manager.Instance.OnFollow_Func(this.transform.position);
 
-        if (_col.transform.parent.TryGetComponent(out Platform_Script _platformClass) == true)
+        Transform _parentTrf = _col.transform.parent;
+        if (_parentTrf != null && _parentTrf.TryGetComponent(out Platform_Script _platformClass) == true)
         {
-            _platformClass.OnLanding_Func();
-
             if (this.landingPlatformClass != _platformClass)
             {
                 this.landingPlatformClass = _platformClass;
@@ -54,8 +55,10 @@ public class Player_Script : MonoBehaviour
             }
             else
             {
-                ScoreSystem_Manager.Instance.OnResetBonus_Func();
+                ScoreSystem_Manager.Instance.OnResetBonus_Func(this.transform.position);
             }
+            _platformClass.OnLanding_Func();
+
         }
     }
 }
