@@ -15,7 +15,7 @@ MonoBehaviour:
   scoreColor: {r: 0.94864726, g: 0.9622642, b: 0.9524563, a: 0}
   bonusColor: {r: 1, g: 0.788248, b: 0.0990566, a: 0}
   scorePopInterval: 0.2
-  jumpPower: 9
+  jumpPower: 20
   largePlatformClassArr:
   - {fileID: 1987934851392401, guid: e4d6f05d4884d9d4480ed72d288dfbf1, type: 3}
   - {fileID: 1987934851392401, guid: 3f2dde05c59ca7943a841e1684b4121a, type: 3}
@@ -63,3 +63,14 @@ MonoBehaviour:
   baseItemClass: {fileID: 2360358527925842022, guid: 8a8444f689dc21741a22a2cadbcf5b24, type: 3}
   itemSpawnPer: 0.2
   itemBonus: 0.25
+  bgmDataArr:
+  - clip: {fileID: 8300000, guid: e0e43c628e1bee542bd57ac3d8780aff, type: 3}
+    volume: 0.2
+    bgmType: 10
+  sfxDataArr:
+  - clip: {fileID: 8300000, guid: 4973db4449778d64cad7dee8f61ee655, type: 3}
+    volume: 0.2
+    sfxType: 10
+  - clip: {fileID: 8300000, guid: 5d09e673d2989934c9bf634cbaa9f8aa, type: 3}
+    volume: 0.2
+    sfxType: 20

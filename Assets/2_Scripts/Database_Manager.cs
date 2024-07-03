@@ -35,8 +35,68 @@ public class Database_Manager : ScriptableObject
     public float itemSpawnPer = .2f;
     public float itemBonus = .25f;
 
+    [Header("사운드")]
+    [SerializeField] private BgmData[] bgmDataArr = null;
+    [SerializeField] private SfxData[] sfxDataArr = null;
+    private Dictionary<BgmType, BgmData> bgmDataDic;
+    private Dictionary<SfxType, SfxData> sfxDataDic;
     public void Init_Func()
     {
         Instance = this;
+
+        this.bgmDataDic = new Dictionary<BgmType, BgmData>();
+        foreach (var _bgmData in this.bgmDataArr)
+        {
+            this.bgmDataDic.Add(_bgmData.bgmType, _bgmData);
+        }
+
+        this.sfxDataDic = new Dictionary<SfxType, SfxData>();
+        foreach (var _sfxData in this.sfxDataArr)
+        {
+            this.sfxDataDic.Add(_sfxData.sfxType, _sfxData);
+        }
     }
+
+    public BgmData GetBgmData_Func(BgmType _bgmType)
+    {
+        return this.bgmDataDic[_bgmType];
+    }
+    public SfxData GetSfxData_Func(SfxType _sfxType)
+    {
+        return this.sfxDataDic[_sfxType];
+    }
+
+    [System.Serializable]
+    public class SoundData
+    {
+        public AudioClip clip;
+        public float volume = 1f;
+    }
+
+
+    [System.Serializable]
+    public class BgmData : SoundData
+    {
+        public BgmType bgmType;
+    }
+
+    [System.Serializable]
+    public class SfxData : SoundData
+    {
+        public SfxType sfxType;
+    }
+}
+
+public enum BgmType
+{
+    None = 0,
+    Main = 10,
+}
+
+public enum SfxType
+{
+    None = 0,
+
+    Jump1 = 10,
+    Jump2 = 20,
 }

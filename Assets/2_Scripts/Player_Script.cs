@@ -33,6 +33,9 @@ public class Player_Script : MonoBehaviour
             this.currentJumpPower = 0f;
 
             this.anim.SetInteger("StateID", 2);
+
+            SfxType _sfxType = Random.value < .5f ? SfxType.Jump1 : SfxType.Jump2;
+            SoundSystem_Manager.Instance.PlaySfx_Func(_sfxType);
         }
     }
 
