@@ -46,11 +46,13 @@ public class Player_Script : MonoBehaviour
 
         this.anim.SetInteger("StateID", 0);
 
-        CameraSystem_Manager.Instance.OnFollow_Func(this.transform.position);
+
 
         Transform _parentTrf = _col.transform.parent;
         if (_parentTrf != null && _parentTrf.TryGetComponent(out Platform_Script _platformClass) == true)
         {
+            CameraSystem_Manager.Instance.OnFollow_Func(this.transform.position);
+
             if (this.landingPlatformClass != _platformClass)
             {
                 this.landingPlatformClass = _platformClass;
