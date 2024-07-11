@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GameSystem_Manager : MonoBehaviour
 {
-    [SerializeField]
-    private PlatformSystem_Manager platformSystem_Manager = null;
+    [SerializeField] private PlatformSystem_Manager platformSystem_Manager = null;
     [SerializeField] private Player_Script PlayerClass = null;
     [SerializeField] private CameraSystem_Manager cameraSystem_Manager = null;
     [SerializeField] private Database_Manager database_Manager = null;
     [SerializeField] private ScoreSystem_Manager scoreSystem_Manager = null;
     [SerializeField] private SoundSystem_Manager soundSystem_Manager = null;
+    [SerializeField] private SpriteRenderer bgSrdr = null;
 
     private void Awake()
     {
@@ -28,5 +28,12 @@ public class GameSystem_Manager : MonoBehaviour
         this.scoreSystem_Manager.Activate_Func();
 
         SoundSystem_Manager.Instance.PlayBgm_Func(BgmType.Main);
+    }
+
+    private void Update()
+    {
+        float _cameraPosX = CameraSystem_Manager.Instance.transform.position.x;
+        this.bgSrdr.transform.position = new Vector3(10f + _cameraPosX, 4f, 0f);
+        this.bgSrdr.size = new Vector2(25f + _cameraPosX * 2f, this.bgSrdr.size.y);
     }
 }
