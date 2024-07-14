@@ -36,6 +36,9 @@ public class Player_Script : MonoBehaviour
 
             SfxType _sfxType = Random.value < .5f ? SfxType.Jump1 : SfxType.Jump2;
             SoundSystem_Manager.Instance.PlaySfx_Func(_sfxType);
+
+            JumpEffect _effClass = GameObject.Instantiate<JumpEffect>(Database_Manager.Instance.effClass);
+            _effClass.Activate_Func(this.transform.position);
         }
     }
 

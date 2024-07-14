@@ -11,6 +11,7 @@ public class Database_Manager : ScriptableObject
     public Color scoreColor;
     public Color bonusColor;
     public float scorePopInterval;
+    public JumpEffect effClass = null;
 
 
     [Header("플레이어")]
