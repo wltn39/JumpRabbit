@@ -23,5 +23,6 @@ public class Platform_Script : MonoBehaviour
     public void OnLanding_Func()
     {
         ScoreSystem_Manager.Instance.AddScore_Func(this.score, this.transform.position);
+        PlatformLanding.Instance.LanddingEffect();
     }
 }
