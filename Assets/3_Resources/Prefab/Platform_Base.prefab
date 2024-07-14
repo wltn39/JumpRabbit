@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46462718077980888}
   - component: {fileID: -7700253697907870274}
-  - component: {fileID: 6072365126309755455}
+  - component: {fileID: -2253286193730211047}
   m_Layer: 0
   m_Name: Platform_Base
   m_TagString: Untagged
@@ -49,7 +49,7 @@ MonoBehaviour:
   col: {fileID: 46462718145650073}
   srdr: {fileID: 46462718145650150}
   score: 0
---- !u!111 &6072365126309755455
+--- !u!111 &-2253286193730211047
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,9 +58,8 @@ Animation:
   m_GameObject: {fileID: 46462718077980890}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 9e043e0d1e267714b97e989c2a54b25e, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 9e043e0d1e267714b97e989c2a54b25e, type: 2}
+  m_Animation: {fileID: 0}
+  m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
