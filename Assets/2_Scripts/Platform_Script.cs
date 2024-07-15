@@ -10,10 +10,10 @@ public class Platform_Script : MonoBehaviour
     [SerializeField] private int score;
 
     public float GetHalfSizeX => this.col.size.x * 0.5f;
-    public void Activate_Func(Vector2 _pos)
+    public void Activate_Func(Vector2 _pos, bool _isFirst = false)
     {
         this.transform.position = _pos;
-        if (Random.value < Database_Manager.Instance.itemSpawnPer)
+        if (_isFirst == false && Random.value < Database_Manager.Instance.itemSpawnPer)
         {
             Item_Script _itemClass = GameObject.Instantiate<Item_Script>(Database_Manager.Instance.baseItemClass);
             _itemClass.Activate_Func(this.transform.position, this.GetHalfSizeX);

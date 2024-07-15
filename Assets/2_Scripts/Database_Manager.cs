@@ -16,6 +16,7 @@ public class Database_Manager : ScriptableObject
 
     [Header("플레이어")]
     public float jumpPower = 1f;
+    public float gameOverConditionHeight = -10f;
 
     [Header("플랫폼")]
     public Platform_Script[] largePlatformClassArr = null;

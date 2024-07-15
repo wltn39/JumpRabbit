@@ -8,11 +8,17 @@ public class Player_Script : MonoBehaviour
     [SerializeField] private Animator anim = null;
     private float currentJumpPower = 1f;
     private Platform_Script landingPlatformClass;
+    private bool isFirstLanding = false;
 
 
     public void Init_Func()
     {
 
+    }
+
+    public void Activate_Func()
+    {
+        this.isFirstLanding = false;
     }
 
     private void Update()
@@ -40,6 +46,11 @@ public class Player_Script : MonoBehaviour
             JumpEffect _effClass = GameObject.Instantiate<JumpEffect>(Database_Manager.Instance.effClass);
             _effClass.Activate_Func(this.transform.position);
         }
+        Vector3 _playerPos = this.transform.position;
+        if (_playerPos.y < Database_Manager.Instance.gameOverConditionHeight)
+        {
+            GameSystem_Manager.Instance.OnGameOver_Func();
+        }
     }
 
 
@@ -56,6 +67,14 @@ public class Player_Script : MonoBehaviour
         {
             CameraSystem_Manager.Instance.OnFollow_Func(this.transform.position);
 
+            if (this.isFirstLanding == false)
+            {
+                this.isFirstLanding = true;
+                return;
+            }
+
+            _platformClass.OnLanding_Func();
+
             if (this.landingPlatformClass != _platformClass)
             {
                 this.landingPlatformClass = _platformClass;
@@ -65,8 +84,6 @@ public class Player_Script : MonoBehaviour
             {
                 ScoreSystem_Manager.Instance.OnResetBonus_Func(this.transform.position);
             }
-            _platformClass.OnLanding_Func();
-
         }
     }
 }

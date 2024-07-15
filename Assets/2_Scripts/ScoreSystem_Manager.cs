@@ -23,6 +23,8 @@ public class ScoreSystem_Manager : MonoBehaviour
 
     public void Activate_Func()
     {
+        this.scoreTmp.text = "0";
+        this.bonusTmp.text = "0%";
         StartCoroutine(this.OnScore_Cor());
     }
 
