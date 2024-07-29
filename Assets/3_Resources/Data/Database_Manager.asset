@@ -17,6 +17,7 @@ MonoBehaviour:
   scorePopInterval: 0.2
   effClass: {fileID: 6745593084996644999, guid: cbb77a54b942a8348be41b20eb0d718f, type: 3}
   jumpPower: 20
+  gameOverConditionHeight: -10
   largePlatformClassArr:
   - {fileID: 1987934851392401, guid: e4d6f05d4884d9d4480ed72d288dfbf1, type: 3}
   - {fileID: 1987934851392401, guid: 3f2dde05c59ca7943a841e1684b4121a, type: 3}
@@ -66,12 +67,12 @@ MonoBehaviour:
   itemBonus: 0.25
   bgmDataArr:
   - clip: {fileID: 8300000, guid: e0e43c628e1bee542bd57ac3d8780aff, type: 3}
-    volume: 0
+    volume: 0.1
     bgmType: 10
   sfxDataArr:
   - clip: {fileID: 8300000, guid: 4973db4449778d64cad7dee8f61ee655, type: 3}
-    volume: 0
+    volume: 0.4
     sfxType: 10
   - clip: {fileID: 8300000, guid: 5d09e673d2989934c9bf634cbaa9f8aa, type: 3}
-    volume: 0
+    volume: 0.4
     sfxType: 20
